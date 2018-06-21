@@ -233,7 +233,7 @@ class Model(dict, metaclass=ModelMetaclass):
             logging.warn('failed to update by primary key: affected rows: %s' % rows)
 
     @asyncio.coroutine
-    def remove(cls,pk):
+    def remove(self,cls,pk):
         args = [self.getValue(self.__primary_key__)]
         rows = yield from execute(cls.__delete__, args)
         if rows != 1:

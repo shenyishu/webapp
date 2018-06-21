@@ -51,21 +51,23 @@ class Comment(Model):
     content = TextField()
     created_at = FloatField(default=time.time)
 
-if __name__ == "__main__":  # 一个类自带前后都有双下划线的方法，在子类继承该类的时候，这些方法会自动调用，比如__init__
 
-    loop = asyncio.get_event_loop()
-
-
-    # 创建实例
-    @asyncio.coroutine
-    def test():
-        yield from create_pool(loop=loop, host='localhost', port=3306, user='root', password='shen1987', db='awesome')
-        u = User(name='Test', email='test@example.com', passwd='1234567890', image='about:blank')
-
-        yield from u.save()
-
-
-    loop.run_until_complete(test())
-    loop.run_forever()
-    # if loop.is_closed():
-    #     sys.exit(0)
+#
+# if __name__ == "__main__":  # 一个类自带前后都有双下划线的方法，在子类继承该类的时候，这些方法会自动调用，比如__init__
+#
+#     loop = asyncio.get_event_loop()
+#
+#
+#     # 创建实例
+#     @asyncio.coroutine
+#     def test():
+#         yield from create_pool(loop=loop, host='localhost', port=3306, user='root', password='shen1987', db='awesome')
+#         u = User(name='Test', email='test@example.com', passwd='1234567890', image='about:blank')
+#
+#         yield from u.save()
+#
+#
+#     loop.run_until_complete(test())
+#     loop.run_forever()
+#     # if loop.is_closed():
+#     #     sys.exit(0)
